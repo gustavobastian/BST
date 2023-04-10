@@ -24,5 +24,13 @@ prettyPrint(myBst.root)
 myBst.insert(18);
 prettyPrint(myBst.root)
 
+console.log(JSON.stringify(myBst.find(4)))
+
 myBst.delete(18);
 prettyPrint(myBst.root)
+
+myBst.levelOrder(myBst.root,dd);
+
+function dd(x){
+    console.log(x-1);
+}

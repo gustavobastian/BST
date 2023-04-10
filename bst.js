@@ -124,6 +124,55 @@ export class tree{
             return root;
     }
  
+    find(key){
+        console.log("find key="+key)
+        
+        let output = this.findRec(this.root, key);    
+        return output;       
+    }
+    
+    findRec(root,key){
+
+        /**tree empty */
+        if(root.data==key){
+            console.log("found")            
+            return new node(root.data,root.left,root.right);            
+        }
+
+        /**down the tree */
+        if(key<root.data){            
+            return this.findRec(root.left,key);
+        }
+        else if (key>root.data){
+            return  this.findRec(root.right,key);
+        }
+
+        
+
+    }
+
+    levelOrder(root,f){
+        
+        if(root==null){
+            return;
+        }
+        let queue=[]
+        queue.push(root)
+        
+        while((queue.length!=0))
+        {
+            let current=queue.shift();
+         
+                f(current.data)                
+                if(current.left!=null){ queue.push(current.left)}
+                if(current.right!=null){ queue.push(current.right)}            
+         
+        }
+        
+        return;
+    }
+
+
 
 }
 
