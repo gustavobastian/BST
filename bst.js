@@ -9,8 +9,7 @@ class node{
 }
 
 export class tree{
-    constructor(arrayP){
-        console.log("data "+JSON.stringify(arrayP))
+    constructor(arrayP){        
         this.array=[]
         arrayP.forEach(element => {            
             if(this.findValue(this.array,element)===false){                
@@ -46,8 +45,7 @@ export class tree{
         array.forEach(element => {
 
             if(parseInt(element)===parseInt(value))
-            {
-                console.log("found")
+            {                
                 standard=true;
             }
             index++;
@@ -55,8 +53,7 @@ export class tree{
         return standard;
     }    
 
-    insert(key){
-        console.log("insert key="+key)
+    insert(key){        
         this.root=this.insertRec(this.root,key);
     }
 
@@ -85,8 +82,7 @@ export class tree{
     }
     
     delete(key)
-    {
-        console.log("delete key="+key)
+    {        
         this.root = this.deleteRec(this.root, key);
     }
 
@@ -95,7 +91,6 @@ export class tree{
         
             if (root == null)
                 return root;
-            
             if (key < root.data)
                 root.left = this.deleteRec(root.left, key);
             else if (key > root.data)
@@ -124,8 +119,7 @@ export class tree{
     findRec(root,key){
 
         /**tree empty */
-        if(root.data==key){
-            console.log("found")            
+        if(root.data==key){                      
             return new node(root.data,root.left,root.right);            
         }
 
@@ -158,8 +152,6 @@ export class tree{
                 if(current.right!=null){ queue.push(current.right)}            
          
         }
-        
-        return;
     }
 
     inOrder(root,f){
@@ -170,8 +162,6 @@ export class tree{
         if(root.left!=null){ this.inOrder(root.left,f)}
         f(root.data)                
         if(root.right!=null){ this.inOrder(root.right,f)}            
-     
-        return;
     }
 
     preOrder(root,f){
@@ -182,8 +172,7 @@ export class tree{
        
         f(root.data)                
         if(root.left!=null){ this.preOrder(root.left,f)}
-        if(root.right!=null){ this.preOrder(root.right,f)}            
-        return;
+        if(root.right!=null){ this.preOrder(root.right,f)}                    
     }
 
     postOrder(root,f){
@@ -192,11 +181,9 @@ export class tree{
             return;
         }
        
-        
         if(root.left!=null){ this.postOrder(root.left,f)}
         if(root.right!=null){ this.postOrder(root.right,f)}            
-        f(root.data)                
-        return;
+        f(root.data)                        
     }
 
     height(root){
@@ -214,11 +201,12 @@ export class tree{
                 return rheight+1;
             }
         }
-
     }
 
-    depth(root){
 
+    /* TODO */
+    depth(root){
+        return;
     }
 
     isBalanced(root){
@@ -228,12 +216,7 @@ export class tree{
         let leftH=this.height(root.left)
         let rightH=this.height(root.right)
 
-        if((Math.abs(leftH-rightH)<=1) && (this.isBalanced(root.left)) && (this.isBalanced(root.right))){
-            return true;
-        } else {
-            return false;
-        }
-
+        return !!((Math.abs(leftH-rightH)<=1) && (this.isBalanced(root.left)) && (this.isBalanced(root.right)));
     }
 
 }

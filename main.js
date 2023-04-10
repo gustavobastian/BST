@@ -4,7 +4,7 @@ let data= [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]
 
 let myBst=new tree(data);
 
-console.log(myBst)
+
 
 const prettyPrint = (node, prefix = '', isLeft = true) => {
     if (node === null) {
@@ -19,28 +19,29 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
     }
   }
 
-//prettyPrint(myBst.root)
+
 
 myBst.insert(18);
-//prettyPrint(myBst.root)
 
+console.log("******************************************** ")
+console.log("printing the node where is found 4 and subnodes:")
 console.log(JSON.stringify(myBst.find(4)))
 
 myBst.delete(18);
 prettyPrint(myBst.root)
-/*
+
 console.log("******************************************** ")
 console.log("level order ")
-myBst.levelOrder(myBst.root,dd);*/
-/*
+myBst.levelOrder(myBst.root,dd);
+
 console.log("******************************************** ")
 console.log("in order ")
-myBst.inOrder(myBst.root,dd);*/
-/*
+myBst.inOrder(myBst.root,dd);
+
 console.log("******************************************** ")
 console.log("pre Order ")
 myBst.inOrder(myBst.root,dd);
-*/
+
 function dd(x){
     console.log(x);
 }
@@ -48,3 +49,10 @@ function dd(x){
 console.log("height:"+myBst.height(myBst.root))
 
 console.log("isBalanced:"+myBst.isBalanced(myBst.root))
+
+myBst.insert(245)
+myBst.insert(378)
+myBst.insert(988)
+
+console.log("isBalanced:"+myBst.isBalanced(myBst.root))
+
