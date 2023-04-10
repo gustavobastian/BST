@@ -172,6 +172,42 @@ export class tree{
         return;
     }
 
+    inOrder(root,f){
+        
+        if(root==null){
+            return;
+        }
+        if(root.left!=null){ this.inOrder(root.left,f)}
+        f(root.data)                
+        if(root.right!=null){ this.inOrder(root.right,f)}            
+     
+        return;
+    }
+
+    preOrder(root,f){
+        
+        if(root==null){
+            return;
+        }
+       
+        f(root.data)                
+        if(root.left!=null){ this.preOrder(root.left,f)}
+        if(root.right!=null){ this.preOrder(root.right,f)}            
+        return;
+    }
+
+    postOrder(root,f){
+        
+        if(root==null){
+            return;
+        }
+       
+        
+        if(root.left!=null){ this.postOrder(root.left,f)}
+        if(root.right!=null){ this.postOrder(root.right,f)}            
+        f(root.data)                
+        return;
+    }
 
 
 }

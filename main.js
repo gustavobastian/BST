@@ -19,18 +19,28 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
     }
   }
 
-prettyPrint(myBst.root)
+//prettyPrint(myBst.root)
 
 myBst.insert(18);
-prettyPrint(myBst.root)
+//prettyPrint(myBst.root)
 
 console.log(JSON.stringify(myBst.find(4)))
 
 myBst.delete(18);
 prettyPrint(myBst.root)
+/*
+console.log("******************************************** ")
+console.log("level order ")
+myBst.levelOrder(myBst.root,dd);*/
 
-myBst.levelOrder(myBst.root,dd);
-
+console.log("******************************************** ")
+console.log("in order ")
+myBst.inOrder(myBst.root,dd);
+/*
+console.log("******************************************** ")
+console.log("pre Order ")
+myBst.inOrder(myBst.root,dd);
+*/
 function dd(x){
-    console.log(x-1);
+    console.log(x);
 }
