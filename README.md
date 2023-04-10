@@ -1,2 +1,2 @@
 # BST
-Balanced Search tree for Odin Project
+Balanced Binary Search tree for Odin Project
