@@ -1,4 +1,4 @@
-
+//based in code by geeksforgeeks.org
 class node{
     constructor(dataP,leftP=null,rightP=null){
         this.data=dataP;
@@ -20,7 +20,7 @@ export class tree{
         this.root=null;
         this.array.sort((a,b)=>a-b);
         
-        this.root=this.buildtree(this.array,0,this.array.length);
+        this.root=this.buildtree(this.array,0,this.array.length-1);
     }
 
     buildtree(arr, start, end){        
@@ -54,6 +54,77 @@ export class tree{
         });
         return standard;
     }    
+
+    insert(key){
+        console.log("insert key="+key)
+        this.root=this.insertRec(this.root,key);
+    }
+
+    insertRec(root,key){
+        /**tree empty */
+        if(root==null){
+            root=new node(key);
+            return root;
+        }
+
+        /**down the tree */
+        if(key<root.data){
+            root.left = this.insertRec(root.left,key);
+        }
+        else if (key>root.data){
+            root.right = this.insertRec(root.right,key);
+        }
+
+        return root;
+    }
+
+
+    minValue(root){
+        let minv = root.data;
+            while (root.left != null)
+            {
+                minv = root.left.data;
+                root = root.left;
+            }
+            return minv;
+    }
+    
+    delete(key)
+    {
+        console.log("delete key="+key)
+        this.root = this.deleteRec(this.root, key);
+    }
+
+     deleteRec(root,key)
+    {
+        
+            if (root == null)
+                return root;
+    
+            
+            if (key < root.data)
+                root.left = this.deleteRec(root.left, key);
+            else if (key > root.data)
+                root.right = this.deleteRec(root.right, key);
+    
+            
+            else {
+                
+                if (root.left == null)
+                    return root.right;
+                else if (root.right == null)
+                    return root.left;
+    
+            
+                root.data = this.minValue(root.right);
+    
+                root.right = this.deleteRec(root.right, root.data);
+            }
+    
+            return root;
+    }
+ 
+
 }
 
 

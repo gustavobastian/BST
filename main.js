@@ -20,3 +20,9 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
   }
 
 prettyPrint(myBst.root)
+
+myBst.insert(18);
+prettyPrint(myBst.root)
+
+myBst.delete(18);
+prettyPrint(myBst.root)
