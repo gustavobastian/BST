@@ -32,10 +32,10 @@ prettyPrint(myBst.root)
 console.log("******************************************** ")
 console.log("level order ")
 myBst.levelOrder(myBst.root,dd);*/
-
+/*
 console.log("******************************************** ")
 console.log("in order ")
-myBst.inOrder(myBst.root,dd);
+myBst.inOrder(myBst.root,dd);*/
 /*
 console.log("******************************************** ")
 console.log("pre Order ")
@@ -44,3 +44,7 @@ myBst.inOrder(myBst.root,dd);
 function dd(x){
     console.log(x);
 }
+
+console.log("height:"+myBst.height(myBst.root))
+
+console.log("isBalanced:"+myBst.isBalanced(myBst.root))

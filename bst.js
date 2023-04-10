@@ -1,4 +1,4 @@
-//based in code by geeksforgeeks.org
+
 class node{
     constructor(dataP,leftP=null,rightP=null){
         this.data=dataP;
@@ -60,24 +60,19 @@ export class tree{
         this.root=this.insertRec(this.root,key);
     }
 
-    insertRec(root,key){
-        /**tree empty */
+    insertRec(root,key){        
         if(root==null){
             root=new node(key);
             return root;
-        }
-
-        /**down the tree */
+        }        
         if(key<root.data){
             root.left = this.insertRec(root.left,key);
         }
         else if (key>root.data){
             root.right = this.insertRec(root.right,key);
         }
-
         return root;
     }
-
 
     minValue(root){
         let minv = root.data;
@@ -100,14 +95,11 @@ export class tree{
         
             if (root == null)
                 return root;
-    
             
             if (key < root.data)
                 root.left = this.deleteRec(root.left, key);
             else if (key > root.data)
                 root.right = this.deleteRec(root.right, key);
-    
-            
             else {
                 
                 if (root.left == null)
@@ -125,8 +117,6 @@ export class tree{
     }
  
     find(key){
-        console.log("find key="+key)
-        
         let output = this.findRec(this.root, key);    
         return output;       
     }
@@ -209,6 +199,42 @@ export class tree{
         return;
     }
 
+    height(root){
+        if(root==null){
+            return 0;            
+        }
+        else{
+            let lheight= this.height(root.left)
+            let rheight= this.height(root.right)
+
+            if(lheight>rheight){
+                return lheight+1;
+            }
+            else{
+                return rheight+1;
+            }
+        }
+
+    }
+
+    depth(root){
+
+    }
+
+    isBalanced(root){
+        if(root==null){
+            return true;
+        }
+        let leftH=this.height(root.left)
+        let rightH=this.height(root.right)
+
+        if((Math.abs(leftH-rightH)<=1) && (this.isBalanced(root.left)) && (this.isBalanced(root.right))){
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 
 }
 
