@@ -123,7 +123,7 @@ export class tree{
     levelOrder(root,f){
         
         if(root==null){
-            return;
+            return new node("Not found");
         }
         let queue=[]
         queue.push(root)
