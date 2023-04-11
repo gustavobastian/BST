@@ -209,6 +209,7 @@ export class tree{
             if(this.root==null){
                 return;
             }
+            //fill the generator array similar to level order
             let queue=[]
             let arrayLocal = [];
             queue.push(this.root)
@@ -223,6 +224,7 @@ export class tree{
              
             }   
 
+            //regenerate the tree with new array
 
             let newTree= new tree(arrayLocal);
 
