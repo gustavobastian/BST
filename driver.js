@@ -24,8 +24,14 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
 myBst.insert(18);
 
 console.log("******************************************** ")
-console.log("printing the node where is found 4 and subnodes:")
-console.log(JSON.stringify(myBst.find(4)))
+console.log("printing the node where is found 4 :")
+console.log(JSON.stringify(myBst.find(4).data))
+
+console.log("printing the node where is found 99 :")
+console.log(JSON.stringify(myBst.find(99).data))
+
+console.log("printing the node where is found 550 :")
+console.log(JSON.stringify(myBst.find(550).data))
 
 myBst.delete(18);
 prettyPrint(myBst.root)

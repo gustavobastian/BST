@@ -98,9 +98,14 @@ export class tree{
     
     findRec(root,key){
 
+        if(root==null){
+            
+            return new node("Not found");
+        }
+
         /**tree empty */
         if(root.data==key){                      
-            return new node(root.data,root.left,root.right);            
+            return root;            
         }
 
         /**down the tree */
