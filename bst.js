@@ -10,12 +10,7 @@ class node{
 
 export class tree{
     constructor(arrayP){        
-        this.array=[]
-        arrayP.forEach(element => {            
-            if(this.findValue(this.array,element)===false){                
-                this.array.push(parseInt(element));
-            }
-        });
+        this.array= [...new Set(arrayP)];
         this.root=null;
         this.array.sort((a,b)=>a-b);
         
@@ -37,21 +32,6 @@ export class tree{
         nodelocal.right = this.buildtree(arr, mid + 1, end);
         return nodelocal;
     }
-
-    findValue(array, value){
-        let index=0;
-        let standard=false;
-        if(array.length==0){return false;}
-        array.forEach(element => {
-
-            if(parseInt(element)===parseInt(value))
-            {                
-                standard=true;
-            }
-            index++;
-        });
-        return standard;
-    }    
 
     insert(key){        
         this.root=this.insertRec(this.root,key);
