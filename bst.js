@@ -185,8 +185,14 @@ export class tree{
 
 
     /* TODO */
-    depth(root){
-        return;
+    depth(node,root=this.root,count=0){        
+        if(root==null) return;
+        if(node===root.data) return count;
+        if(node>root.data) {
+            return this.depth(node,root.right,count+1)
+        }else{
+            return this.depth(node,root.left,count+1)
+        }
     }
 
     isBalanced(root){

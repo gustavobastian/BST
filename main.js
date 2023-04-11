@@ -48,14 +48,18 @@ function dd(x){
 
 console.log("height:"+myBst.height(myBst.root))
 
+
+
 console.log("isBalanced:"+myBst.isBalanced(myBst.root))
 
 myBst.insert(245)
 myBst.insert(378)
 myBst.insert(988)
+console.log("depth:"+ myBst.depth(7))
 
 console.log("isBalanced:"+myBst.isBalanced(myBst.root))
 prettyPrint(myBst.root)
 myBst.rebalance(myBst);
 console.log("isBalanced:"+myBst.isBalanced(myBst.root))
 prettyPrint(myBst.root)
+
