@@ -6,4 +6,4 @@ Balanced Binary Search tree for Odin Project
 
 ## how to run
 
-The functions can checked opening index.html in a browser, and display the console.
+The functions can checked opening index.html in a browser.
