@@ -199,6 +199,38 @@ export class tree{
         return !!((Math.abs(leftH-rightH)<=1) && (this.isBalanced(root.left)) && (this.isBalanced(root.right)));
     }
 
+    
+
+    rebalance(){
+        
+        if(this.isBalanced(this.root)===true){            
+            return;
+        }else{
+            if(this.root==null){
+                return;
+            }
+            let queue=[]
+            let arrayLocal = [];
+            queue.push(this.root)
+            
+            while((queue.length!=0))
+            {
+                let current=queue.shift();
+             
+                arrayLocal.push(current.data)                
+                if(current.left!=null){ queue.push(current.left)}
+                if(current.right!=null){ queue.push(current.right)}            
+             
+            }   
+
+
+            let newTree= new tree(arrayLocal);
+
+            this.root=newTree.root;
+        }
+
+    }
+
 }
 
 

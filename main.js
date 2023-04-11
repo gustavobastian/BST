@@ -55,4 +55,7 @@ myBst.insert(378)
 myBst.insert(988)
 
 console.log("isBalanced:"+myBst.isBalanced(myBst.root))
-
+prettyPrint(myBst.root)
+myBst.rebalance(myBst);
+console.log("isBalanced:"+myBst.isBalanced(myBst.root))
+prettyPrint(myBst.root)
